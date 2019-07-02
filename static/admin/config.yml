@@ -1,5 +1,5 @@
 backend:
-  name: githubep
+  name: github
   repo: jamesgrubb/netlify-cms-tutorial
 
 media_folder: static/assets
