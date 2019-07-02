@@ -1,10 +1,11 @@
-import React from 'react';
+import React from "react"
+import { graphql } from "gatsby"
 
 export default function Template({
-  data,
+  data, // this prop will be injected by the GraphQL query below.
 }) {
-  const { markdownRemark } = data;
-  const { frontmatter, html } = markdownRemark;
+  const { markdownRemark } = data // data.markdownRemark holds our post data
+  const { frontmatter, html } = markdownRemark
   return (
     <div className="blog-post-container">
       <div className="blog-post">
@@ -16,11 +17,11 @@ export default function Template({
         />
       </div>
     </div>
-  );
+  )
 }
 
 export const pageQuery = graphql`
-  query BlogPostByPath($path: String!) {
+  query($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
@@ -30,4 +31,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
